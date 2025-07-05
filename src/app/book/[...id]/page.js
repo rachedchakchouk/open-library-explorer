@@ -7,13 +7,17 @@ async function getBookDetails(workId) {
 }
 
 export default async function BookPage({ params }) {
-  const workId = params.id[1]
+  params = await params; // attendre les params
 
-  let book
+  const workId = params.id[1];
+
+  let book;
   try {
-    book = await getBookDetails(workId)
+    const res = await fetch(`https://openlibrary.org/works/${workId}.json`);
+    if (!res.ok) throw new Error('Failed to fetch book details');
+    book = await res.json();
   } catch {
-    return <div className="p-4 text-red-600">Book not found</div>
+    return <div className="p-4 text-red-600">Book not found</div>;
   }
 
   return (
@@ -24,5 +28,6 @@ export default async function BookPage({ params }) {
         ← Back to Search
       </a>
     </main>
-  )
+  );
 }
+
