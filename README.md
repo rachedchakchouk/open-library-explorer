@@ -15,17 +15,17 @@ A web application built with Next.js that allows users to search and explore boo
 
 ## Technologies Used
 
-- Next.js 13 (App Router)
-- React 18
-- Tailwind CSS for styling
-- Fetch API for network requests
-- Git for version control
+- Next.js 15 (App Router, Turbopack) and React 19
+- Tailwind CSS 4 and PrimeFlex for styling
+- Fetch API with the [Open Library API](https://openlibrary.org/developers/api)
+- Jest 30 and React Testing Library for unit tests
+- ESLint
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (version 16 or higher)
+- Node.js 18.18 or higher
 - npm or yarn package manager
 
 ### Installation
@@ -33,5 +33,41 @@ A web application built with Next.js that allows users to search and explore boo
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/open-library-explorer.git
+git clone https://github.com/rachedchakchouk/open-library-explorer.git
 cd open-library-explorer
+```
+
+2. Install dependencies and start the dev server:
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+```
+
+3. Run the tests and the linter:
+
+```bash
+npm test
+npm run lint
+```
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── page.js               # search page (results grid + "Load More")
+│   ├── book/[...id]/page.js  # book detail page
+│   └── layout.js
+├── components/
+│   ├── SearchBar.jsx
+│   ├── BookCard.jsx
+│   └── BookDetail.jsx
+└── test/
+    └── HomePage.test.jsx
+```
+
+## Author
+
+**Rached Chakchouk** — Full Stack Software Engineer (Java / Spring Boot / Angular)
+[LinkedIn](https://www.linkedin.com/in/rached-chakchouk) · [Portfolio](https://rached-chakchouk.netlify.app)
