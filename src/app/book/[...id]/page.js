@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import BookDetails from '../../../components/BookDetail'
 
 async function getBookDetails(workId) {
@@ -24,9 +25,9 @@ export default async function BookPage({ params }) {
     <main className="max-w-3xl mx-auto p-6">
       <BookDetails book={book} />
 
-      <a href="/" className="inline-block mt-8 text-blue-600 hover:underline">
+      <Link href="/" className="inline-block mt-8 text-blue-600 hover:underline">
         ← Back to Search
-      </a>
+      </Link>
     </main>
   );
 }

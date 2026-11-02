@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import SearchBar from '@/components/SearchBar'
 import BookCard from '@/components/BookCard'
 
-export default function HomePage() {
+function HomePageContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const queryParam = searchParams.get('q') || ''
@@ -111,5 +111,14 @@ export default function HomePage() {
         </button>
       )}
     </main>
+  )
+}
+
+// useSearchParams() doit être sous une frontière Suspense pour le prérendu (next build).
+export default function HomePage() {
+  return (
+    <Suspense fallback={null}>
+      <HomePageContent />
+    </Suspense>
   )
 }

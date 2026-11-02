@@ -15,7 +15,7 @@ A web application built with Next.js that allows users to search and explore boo
 
 ## Technologies Used
 
-- Next.js 15 (App Router, Turbopack) and React 19
+- Next.js 16 (App Router, Turbopack) and React 19
 - Tailwind CSS 4 and PrimeFlex for styling
 - Fetch API with the [Open Library API](https://openlibrary.org/developers/api)
 - Jest 30 and React Testing Library for unit tests
